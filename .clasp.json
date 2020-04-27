@@ -1,0 +1,4 @@
+{
+    "scriptId":"本番環境のスクリプトID",
+    "rootDir": "./dist"
+}

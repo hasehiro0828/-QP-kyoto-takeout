@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "build": "webpack",
+    "deploy": "yarn build && cp ./src/appsscript.json ./dist && clasp push",
+    "deployDev": "yarn build && cp ./src/appsscript.json ./dist && sh pushDev.sh"
+  },
+  "devDependencies": {
+    "@types/google-apps-script": "^1.0.12",
+    "es3ify-webpack-plugin": "^0.1.0",
+    "gas-webpack-plugin": "^1.0.2",
+    "ts-loader": "^7.0.1",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "moment": "^2.24.0"
+  }
+}
