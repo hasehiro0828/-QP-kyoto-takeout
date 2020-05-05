@@ -459,4 +459,26 @@ export class SpreadsheetService {
 
     return firstRow;
   };
+
+  // isNew, needUpdating をFalseに変更
+  updateStatusOfStoredData = (
+    numberOfRow: number,
+    startColumnNumber: number
+  ) => {
+    const sheet = this.getSheetByName("firestore投入用シート");
+    const insertData = [];
+    for (let i = 0; i < numberOfRow; i++) {
+      insertData.push([false, false]);
+    }
+
+    sheet.getRange(2, startColumnNumber, numberOfRow, 2).setValues(insertData);
+  };
+
+  getIndexOfRow = (sheetName: string, row: string[], columnName: string) => {
+    const index = row.indexOf(columnName);
+    if (index < 0) {
+      console.log(`[${sheetName}]に[${columnName}]が存在しません`);
+    }
+    return index;
+  };
 }
